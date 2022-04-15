@@ -1,0 +1,74 @@
+entity Student {
+	studentID Integer unique
+    studentNo String required
+    email String required
+    password String required
+    name String required
+    surname String required
+    dateOfBirth LocalDate required
+    mobile String
+    dateOfJoin LocalDate required
+    status Boolean required
+}
+
+entity Course {
+	courseID Integer unique
+    name String required
+    description String 
+}
+
+entity Lecturer {
+	lecturerID Integer unique
+	email String required
+	password String required
+	name String required
+	surname String required
+	dateOfBirth LocalDate required
+    mobile String
+}
+
+entity Classroom {
+	classroomID Integer unique
+    year LocalDate required
+    section Boolean  required
+}
+
+entity Grade {
+	gradeID Integer unique
+    name String required
+    description String
+}
+
+entity Exam {
+	examID Integer unique
+    name String required
+    date LocalDate required
+    examType Integer required
+    description String
+}
+
+entity ExamResult {
+	examResultID Integer unique
+    finalResult Float required
+    finalStatus String    
+}
+
+relationship OneToOne {
+	Course{gradeID} to Grade
+	ExamResult{examID} to Exam
+}
+
+relationship ManyToMany {
+	 Classroom{studentID} to Student{clasroomID}
+     Lecturer{clasroomID} to Classroom{lecturerID}
+}
+
+relationship OneToMany {
+	Classroom{classroomID} to Grade
+}
+
+relationship ManyToOne{
+    ExamResult{studentId} to Student
+    ExamResult{courseID} to Course
+}
+

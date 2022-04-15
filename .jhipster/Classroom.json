@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220415222714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "classroom",
+  "fields": [
+    {
+      "fieldName": "classroomID",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "section",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Classroom",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "grade",
+      "otherEntityRelationshipName": "classroom",
+      "relationshipName": "classroomID",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "clasroomID",
+      "ownerSide": true,
+      "relationshipName": "studentID",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "lecturer",
+      "otherEntityRelationshipName": "clasroomID",
+      "ownerSide": false,
+      "relationshipName": "lecturerID",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

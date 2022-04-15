@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20220415222717",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "exam_result",
+  "fields": [
+    {
+      "fieldName": "examResultID",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "finalResult",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "finalStatus",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ExamResult",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "exam",
+      "otherEntityRelationshipName": "examResult",
+      "ownerSide": true,
+      "relationshipName": "examID",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "examResult",
+      "relationshipName": "studentId",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "examResult",
+      "relationshipName": "courseID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

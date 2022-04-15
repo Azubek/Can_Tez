@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220415222712",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "course",
+  "fields": [
+    {
+      "fieldName": "courseID",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Course",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "grade",
+      "otherEntityRelationshipName": "course",
+      "ownerSide": true,
+      "relationshipName": "gradeID",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
